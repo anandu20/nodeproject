@@ -4,9 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .main{
+            border: 1px solid black;
+            width: 60%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            padding: 4% 3%;
+            border-radius: 15px;
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+            border: none;
+
+            
+        }
+        table{
+            width: 100%;
+            
+        }
+        .inp{
+            padding: 10px 23px;
+            width: 70%;
+            margin-bottom: 11px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;            
+            border: none;
+        }
+        button{
+            margin-top: 20px;
+            padding: 10px 17px;
+            background-color: blue;
+            border: none;
+            border-radius: 6px;
+            color: white;
+
+        }
+       
+    </style>
 </head>
 <body>
-    <hi>ADD USER</hi>
+    <h1>ADD USER</h1>
+<div class="main">
+    <table >
+        <tr>
+            <td>Name</td>
+            
+            <td colspan="3"><input type="text"  name="name" id="name" placeholder="" class="inp"></td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+          
+            <td colspan="3"><input type="text"  name="email" id="email" placeholder="" class="inp"></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+           
+            <td colspan="3"><input type="text"  name="phone" id="phone" placeholder="" class="inp"></td>
+        </tr>
+        <tr>
+            <td>Blood Group</td>
+         
+            <td colspan="3"><input type="text"  name="bgp" id="bgp" placeholder="" class="inp"></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                 <input type="radio" id="male" name="gender" value="male"> Male
+            </td>
+            <td>
+                <input type="radio" id="female" name="gender" value="female"> Female
+            </td>
+            <td>
+                <input type="radio" id="others" name="gender" value="others"> Others
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>Sign in</button>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+
     
 </body>
 </html>
