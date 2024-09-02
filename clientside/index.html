@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            width: 100%;
+            height: 16vh;
+            background-color: rgba(95, 158, 160, 0.486);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          h1{
+            color: rgb(5, 27, 46);
+            margin-left: 40%;
+            font-size: 50px;
+        
+        }
+        .bt1{    
+            background-color: blue;
+            color: aliceblue;
+            border: none;
+            /* height: 35px; */
+            padding: 11px 16px ;
+            border-radius: 10px;
+            font-weight: bold;   
+        }
+        .btn{
+            margin-right: 2%;   
+        }
+        .main{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 5%;
+        }
+        .in{
+            padding: 10px 15px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border: none;
+        }
+     .btnn{
+            padding: 10px 19px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }  
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>DONORS</h1>
+        <div class="btn">
+           
+            <a href="add.html"> <button class="bt1">Add Donor</button></a>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="inp">
+            <input type="text" name="name" id="name" placeholder="name" class="in"> 
+            <input type="text" name="mail" id="mail" placeholder="mail" class="in">
+            <input type="text" name="phone" id="phone" placeholder="phone" class="in">
+            <input type="text" name="bgroup" id="bgroup" placeholder="Blood Group" class="in">
+            <input type="text" name="gender" id="gender" placeholder="gender" class="in">
+        </div>
+        <div class="bttn">
+            <button style="background-color: blue; " class="btnn">Edit</button>
+            <button style="background-color: green; " class="btnn">Save</button>
+            <button style="background-color: red; " class="btnn">Delete</button>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
