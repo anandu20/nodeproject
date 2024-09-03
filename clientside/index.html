@@ -5,31 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        nav{
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .nav{
             width: 100%;
-            height: 16vh;
+            height: 10vh;
             background-color: rgba(95, 158, 160, 0.486);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
           }
           h1{
+            line-height: 10vh;
             color: rgb(5, 27, 46);
-            margin-left: 40%;
             font-size: 50px;
+            text-align: center;
         
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+            margin-top: 1%;
         }
         .bt1{    
             background-color: blue;
             color: aliceblue;
             border: none;
-            /* height: 35px; */
             padding: 11px 16px ;
             border-radius: 10px;
             font-weight: bold;   
+            
         }
-        .btn{
-            margin-right: 2%;   
+
+        
+        .btn a{
+            display: block;
+            
+
         }
         .main{
             display: flex;
@@ -46,19 +58,29 @@
             padding: 10px 19px;
             border: none;
             border-radius: 5px;
-            color: white;
+            color: rgb(255, 255, 255);
             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
         }  
+        #edit{
+            background-color: blue;
+        }
+        #save{
+            background-color: green;
+        }
+        #delete{
+            background-color: red; 
+        }
+      
     </style>
 </head>
 <body>
-    <nav>
-        <h1>DONORS</h1>
-        <div class="btn">
+ <div class="nav">
+    <h1>DONORS</h1>
+ </div>
+    <div class="btn">
            
-            <a href="http://localhost:3000/adddonar"> <button class="bt1">Add Donor</button></a>
-        </div>
-    </nav>
+        <a href="http://localhost:3000/adddonar"> <button class="bt1" id="bb">Add Donor</button></a>
+    </div>
     <div class="main">
         <div class="inp">
             <input type="text" name="name" id="name" placeholder="name" class="in"> 
@@ -68,12 +90,12 @@
             <input type="text" name="gender" id="gender" placeholder="gender" class="in">
         </div>
         <div class="bttn">
-            <button style="background-color: blue; " class="btnn">Edit</button>
-            <button style="background-color: green; " class="btnn">Save</button>
-            <button style="background-color: red; " class="btnn">Delete</button>
+            <button class="btnn" id="edit">Edit</button>
+            <button class="btnn" id="save">Save</button>
+            <button class="btnn" id="delete">Delete</button>
         </div>
         
     </div>
     <script src="../clientside/js/custom.js"></script>
 </body>
-</html>
+</html> 
