@@ -5,7 +5,7 @@ const queryString=require("querystring");
 const {MongoClient}=require("mongodb");
 //connect database
 const client =new MongoClient("mongodb://127.0.0.1:27017//");
-const app=http.createServer((req,res)=>{
+const app=http.createServer(async(req,res)=>{
 
     //create database
     const db=client.db("Blood_bank");
@@ -56,11 +56,20 @@ if(path.pathname=="/submit" && req.method=="POST"){
             console.log(error);
             
         });
-        res.writeHead(200,{"Content-type":"text/html"});
-        res.end(fs.readFileSync("../clientside/index.html"));
+     
         
     });
+    res.writeHead(200,{"Content-type":"text/html"});
+    res.end(fs.readFileSync("../clientside/index.html"));
  
+    }
+    if(path.pathname=="/getdonors" && req.method=="GET"){
+        const data=await collection.find().toArray();
+        const jsonData=JSON.stringify(data);
+        console.log(jsonData);
+        res.writeHead(200,{"Content-type":"text/json"});
+        res.end(jsonData);
+        
     }
 
  });
