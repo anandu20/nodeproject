@@ -1,8 +1,10 @@
+const PORT=3000;
 const http=require("http");
 const fs=require("fs");
 const url=require("url");
 const queryString=require("querystring");
-const {MongoClient}=require("mongodb");
+const {MongoClient, ObjectId}=require("mongodb");
+const { log } = require("console");
 //connect database
 const client =new MongoClient("mongodb://127.0.0.1:27017//");
 const app=http.createServer(async(req,res)=>{
@@ -71,8 +73,37 @@ if(path.pathname=="/submit" && req.method=="POST"){
         res.end(jsonData);
         
     }
+    if(path.pathname=="/delete"&&req.method=="DELETE"){
+        console.log("reached delete route");
+        let body=""
+        req.on("data",(chunks)=>{
+            body+=chunks.toString();
+            console.log(body); 
+        })     
+        req.on("end",async()=>{
+            let _id=new ObjectId(body)
+            console.log(_id);
+            collection.deleteOne({_id}).then(()=>{
+                res.writeHead(200,{"content-Type":"text/plain"});
+                res.end("success")
+            }).catch(()=>{
+                res.writeHead(200,{"content-Type":"text/plain"});
+                res.end("fail")
+                
+            })
+            
+
+        })  
+
+    }
 
  });
+client.connect().then(()=>{
+    console.log("database connected");
+    app.listen(PORT,()=>{
+        console.log(`server created at http://localhost:${PORT}`);     
+    });    
+}).catch((error)=>{
+    console.log(error);
+})
 
-
-app.listen(3000);
