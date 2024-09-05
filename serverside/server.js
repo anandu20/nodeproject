@@ -96,6 +96,27 @@ if(path.pathname=="/submit" && req.method=="POST"){
         })  
 
     }
+    if(req.method="PUT"&&path.pathname=="/update"){
+        console.log("reached to update route");
+        let body="";
+        req.on("data",(chunks)=>{
+            body+=chunks.toString();
+            console.log(body);
+            
+        })
+        req.om("end",async()=>{
+            let data=JSON.parse(body);
+            let _id=new ObjectId(data.id);
+            let updateData={
+                name:data.name,
+                email:data.email,
+                phone:data.phone,
+                bloodgroup:data.bgp
+            }
+        })
+
+        
+    }
 
  });
 client.connect().then(()=>{
