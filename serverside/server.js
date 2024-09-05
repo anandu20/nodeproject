@@ -1,4 +1,4 @@
-const PORT=3000;
+const PORT=3001;
 const http=require("http");
 const fs=require("fs");
 const url=require("url");
@@ -104,16 +104,25 @@ if(path.pathname=="/submit" && req.method=="POST"){
             console.log(body);
             
         })
-        req.om("end",async()=>{
+        req.on("end",async()=>{
             let data=JSON.parse(body);
+            console.log(data);
             let _id=new ObjectId(data.id);
             let updateData={
                 name:data.name,
                 email:data.email,
                 phone:data.phone,
-                bloodgroup:data.bgp
+                bgp:data.bgp,
+                gender:data.gender
             }
-        })
+            await collection.updateOne({_id},{$set:updateData}).then(()=>{
+                res.writeHead(200,{"content-Type":"text/plain"});
+                res.end("success");
+            }).catch(()=>{
+                res.writeHead(400,{"content-Type":"text/plain"});
+                res.end("failed");  
+            })
+        });
 
         
     }
