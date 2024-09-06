@@ -15,14 +15,31 @@
             background-color: rgba(95, 158, 160, 0.486);
             text-align: center;
             background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
           }
           h1{
             line-height: 10vh;
             color:white;
              font-size: 50px;
             text-align: center;
+            margin-left: 2%;
         
         }
+        .filter{
+            width: 180px;
+            height: 35px;
+            margin-right: 2%;
+            text-align: left;
+            border-radius: 4px;
+            border: none;
+            padding-left: 5px;
+
+        }
+
+
         .btn{
             display: flex;
             justify-content: center;
@@ -66,33 +83,40 @@
             border: none;
             border-radius: 5px;
             color: black;       
-             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
             
         }  
         #edit{
             background-color: white;
+            border:1px solid #0d6efd;
+            color: #0d6efd ;
+            
+         
         }
         #edit:hover{
-            background-color:blue;
+            background-color:#0d6efd;
             transform: scale(1.3.1.1);
             transition: .3s;
             color: white;
         }
         #save{
             background-color: white;
+            border:1px solid #198754;
+            color: #198754;
          
         }
         #save:hover{
-            background-color: green;
+            background-color: #198754;
             transform: scale(1.3.1.1);
             transition: .3s;
             color: white;
         }
         #delete{
             background-color: white;
+            border:1px solid  #dc3545;
+            color:#dc3545 ;
         }   
         #delete:hover{
-            background-color: red; 
+            background-color: #dc3545; 
             transform: scale(1.3.1.1);
             transition: .3s;
             color: white;
@@ -107,10 +131,11 @@
 <body>
  <div class="nav">
     <h1>DONORS</h1>
+    <input type="text" placeholder="search" id="filter" class="filter">
  </div>
     <div class="btn">
            
-        <a href="http://localhost:3000/adddonar"> <button class="bt1" id="bb">Add Donor</button></a>
+        <a href="http://localhost:3001/adddonar"> <button class="bt1" id="bb">Add Donor</button></a>
     </div>
     <div class="main" id="main">
         

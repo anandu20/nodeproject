@@ -1,4 +1,5 @@
-async function getDonors(){
+    let arr=[]
+    async function getDonors(){
     const res=fetch("http://localhost:3001/getdonors");
     const data=await (await res).json();
     str=``
@@ -12,10 +13,12 @@ async function getDonors(){
             <button class="btnn" id="edit" onclick=handleEdit('${dt._id}')>Edit</button>
             <button class="btnn" id="save" onclick=handleSave('${dt._id}')>Save</button>
             <button class="btnn" id="delete" onclick=handleDelete('${dt._id}')>Delete</button>
-        </div>
-    `
+        </div> `
+        arr.push(dt);
     })
     document.getElementById("main").innerHTML=str
+    console.log(arr);
+    
     
 }
 getDonors();
@@ -49,6 +52,8 @@ async function handleSave(id) {
         "body":jsonData
 
     });
+    console.log(data);
+    
     console.log(res);
     const result=await res.text();
     console.log(result);
@@ -60,6 +65,7 @@ async function handleSave(id) {
         alert("not updated")
      }
 }
+
 
 async function handleDelete(id){
     const res=await fetch("http://localhost:3001/delete",{
@@ -78,3 +84,22 @@ async function handleDelete(id){
     }
     
 }
+
+
+document.getElementById("filter").addEventListener('keyup',(e)=>{
+    str=``;
+    arr.filter((i)=>i.name.toLowerCase().includes(e.target.value.toLowerCase())).map((dt)=>{
+        str+=`<div class="inp">
+            <input type="text" disabled=true value=${dt.name} name="name" id="name-${dt._id}" placeholder="name" class="in"> 
+            <input type="text" disabled=true value=${dt.email} name="email" id="email-${dt._id}" placeholder="mail" class="in">
+            <input type="text" disabled=true value=${dt.phone} name="phone" id="phone-${dt._id}" placeholder="phone" class="in">
+            <input type="text" disabled=true value=${dt.bgp} name="bgp" id="bgp-${dt._id}" placeholder="Blood Group" class="in">
+            <input type="text" disabled=true value=${dt.gender} name="gender" id="gender-${dt._id}" placeholder="gender" class="in">
+            <button class="btnn" id="edit" onclick=handleEdit('${dt._id}')>Edit</button>
+            <button class="btnn" id="save" onclick=handleSave('${dt._id}')>Save</button>
+            <button class="btnn" id="delete" onclick=handleDelete('${dt._id}')>Delete</button>
+        </div>`
+    })
+    document.getElementById("main").innerHTML=str;
+
+})
